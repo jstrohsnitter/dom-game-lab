@@ -4,6 +4,7 @@ const bodyElement = document.querySelector('body')
 const mainMenuElement = document.createElement('div')
 const newGameElement = document.createElement('div')
 const middlePathElement = document.createElement('div')
+const fireElement = document.createElement('div')
 console.dir(enterButtonElement)
 console.dir(titleScreenElement)
 console.dir(bodyElement)
@@ -14,6 +15,7 @@ console.dir(mainMenuElement)
 mainMenuElement.setAttribute('id', 'mainMenu')
 newGameElement.setAttribute('id', 'new-game')
 middlePathElement.setAttribute('id', 'the-middle-path')
+fireElement.setAttribute('id', 'fire-element')
 
 
 let insertMainMenu = enterButtonElement.addEventListener('click', () => {
@@ -90,6 +92,9 @@ const logCountLog = document.createElement('h4')
 logCountLog.setAttribute('id', 'log-count-log')
 middlePathElement.appendChild(logCountLog)
 
+
+
+
 let swingCount = 0;
 let logCount = 0
 
@@ -102,10 +107,22 @@ const handleSwing = (event) => {
         if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
             logCount = swingCount / 5
             logCountLog.textContent = `You have collected ${logCount} log(s)`
+            if(logCount === 20){
+                console.log('build a fire')
+                const fireButton = document.createElement('button')
+                fireButton.setAttribute('id', 'fire-button')
+                fireButton.innerHTML = 'Build A Fire!'
+                middlePathElement.appendChild(fireButton)
+                let buildAFire = fireButton.addEventListener('click', () => {
+                    bodyElement.removeChild(middlePathElement)
+                    bodyElement.appendChild(fireElement)
+                })
+            }
         }
         // once a player has chopped 20 logs, ask if they want to build a fire, if yes, go to next page and show fire
     }
 }
+
 
 treeButton.addEventListener('click', handleSwing)
 

@@ -2,6 +2,7 @@ const enterButtonElement = document.getElementById('enter-button')
 const titleScreenElement = document.getElementById('title-screen')
 const bodyElement = document.querySelector('body')
 const mainMenuElement = document.createElement('div')
+const newGameElement = document.createElement('div')
 console.dir(enterButtonElement)
 console.dir(titleScreenElement)
 console.dir(bodyElement)
@@ -10,6 +11,7 @@ console.dir(mainMenuElement)
 
 
 mainMenuElement.setAttribute('id', 'mainMenu')
+newGameElement.setAttribute('id', 'new-game')
 
 
 let insertMainMenu = enterButtonElement.addEventListener('click', () => {
@@ -35,9 +37,33 @@ mainMenuElement.appendChild(creditsButtonElement)
 
 let showCredits = creditsButtonElement.addEventListener('click', () => {
     window.open('http://127.0.0.1:5500/credits.html')
-    console.log('credits button')
-    
 })
+
+let startGame = startGameButton.addEventListener('click', () => {
+    bodyElement.removeChild(mainMenuElement)
+    bodyElement.appendChild(newGameElement)
+})
+
+const chooseAPathPrompt = document.createElement('h1')
+chooseAPathPrompt.setAttribute('id', 'choose-path')
+chooseAPathPrompt.innerHTML = 'Good Day brave knight! The sky has been turned red and evil is afoot. A great journey begins with a single step, which direction shall you choose?'
+newGameElement.appendChild(chooseAPathPrompt)
+
+const goLeftButton = document.createElement('button')
+goLeftButton.setAttribute('id', 'go-left-button')
+goLeftButton.innerHTML = 'Left'
+newGameElement.appendChild(goLeftButton)
+
+const goMiddleButton = document.createElement('button')
+goMiddleButton.setAttribute('id', 'middle-button')
+goMiddleButton.innerHTML = 'The Middle Path'
+newGameElement.appendChild(goMiddleButton)
+
+const goRightButton = document.createElement('button')
+goRightButton.setAttribute('id', 'go-right-button')
+goRightButton.innerHTML = 'Right'
+newGameElement.appendChild(goRightButton)
+
 
 
 

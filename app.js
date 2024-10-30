@@ -86,14 +86,24 @@ const swingCountLog = document.createElement('h4')
 swingCountLog.setAttribute('id', 'swing-count-log')
 middlePathElement.appendChild(swingCountLog)
 
+const logCountLog = document.createElement('h4')
+logCountLog.setAttribute('id', 'log-count-log')
+middlePathElement.appendChild(logCountLog)
+
 let swingCount = 0;
+let logCount = 0
 
 const handleSwing = (event) => {
     if(event.target.id === 'tree-button'){
         swingCount = swingCount + 1;
         console.log(swingCount)
         swingCountLog.textContent = `You have taken ${swingCount} swing(s), KEEP CHOPPING!!`
-        
+        // if the swing count is evenly divisible by 5, log the amount whole divisions as a '# of log chopped'
+        if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
+            logCount = swingCount / 5
+            logCountLog.textContent = `You have collected ${logCount} log(s)`
+        }
+        // once a player has chopped 20 logs, ask if they want to build a fire, if yes, go to next page and show fire
     }
 }
 

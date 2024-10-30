@@ -3,6 +3,7 @@ const titleScreenElement = document.getElementById('title-screen')
 const bodyElement = document.querySelector('body')
 const mainMenuElement = document.createElement('div')
 const newGameElement = document.createElement('div')
+const middlePathElement = document.createElement('div')
 console.dir(enterButtonElement)
 console.dir(titleScreenElement)
 console.dir(bodyElement)
@@ -12,6 +13,7 @@ console.dir(mainMenuElement)
 
 mainMenuElement.setAttribute('id', 'mainMenu')
 newGameElement.setAttribute('id', 'new-game')
+middlePathElement.setAttribute('id', 'the-middle-path')
 
 
 let insertMainMenu = enterButtonElement.addEventListener('click', () => {
@@ -64,12 +66,38 @@ goRightButton.setAttribute('id', 'go-right-button')
 goRightButton.innerHTML = 'Right'
 newGameElement.appendChild(goRightButton)
 
+let theMiddlePath = goMiddleButton.addEventListener('click', () => {
+    bodyElement.removeChild(newGameElement)
+    bodyElement.appendChild(middlePathElement)
+})
+
+const middlePathPrompt = document.createElement('h3')
+middlePathPrompt.setAttribute('id', 'middle-path-prompt')
+middlePathPrompt.innerHTML = "You have encountered a downed tree! Night is closing in, the wolves are howling, and the temperature is falling fast. Click the tree to swing thy axe, chop some wood, and build a fire."
+middlePathElement.appendChild(middlePathPrompt)
+
+const treeButton = document.createElement('button')
+treeButton.setAttribute('id', 'tree-button')
+treeButton.innerHTML = 'Tree'
+middlePathElement.appendChild(treeButton)
 
 
+const swingCountLog = document.createElement('h4')
+swingCountLog.setAttribute('id', 'swing-count-log')
+middlePathElement.appendChild(swingCountLog)
 
+let swingCount = 0;
 
+const handleSwing = (event) => {
+    if(event.target.id === 'tree-button'){
+        swingCount = swingCount + 1;
+        console.log(swingCount)
+        swingCountLog.textContent = `You have taken ${swingCount} swing(s), KEEP CHOPPING!!`
+        
+    }
+}
 
-
+treeButton.addEventListener('click', handleSwing)
 
 
 

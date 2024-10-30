@@ -29,21 +29,20 @@ titleElement.setAttribute('id', 'title')
 titleElement.innerHTML = 'Main Menu'
 mainMenuElement.appendChild(titleElement)
 
+const buttonContainerElement = document.createElement('div')
+buttonContainerElement.setAttribute ('id', 'button-container')
+mainMenuElement.appendChild(buttonContainerElement)
+console.dir(buttonContainerElement)
+
 const startGameButton = document.createElement('button')
 startGameButton.setAttribute('id', 'start-game-button')
 startGameButton.innerHTML = 'Start Game'
-mainMenuElement.appendChild(startGameButton)
+buttonContainerElement.appendChild(startGameButton)
 
 const creditsButtonElement = document.createElement('button')
 creditsButtonElement.setAttribute('id', 'credits-button')
 creditsButtonElement.innerHTML = 'Credits'
-mainMenuElement.appendChild(creditsButtonElement)
-
-// const buttonContainerElement = document.createElement('div')
-// buttonContainerElement.setAttribute ('id', 'button-container')
-// buttonContainerElement.appendChild(mainMenuElement)
-// buttonContainerElement.innerHTML = 'test'
-// console.dir(buttonContainerElement)
+buttonContainerElement.appendChild(creditsButtonElement)
 
 let showCredits = creditsButtonElement.addEventListener('click', () => {
     window.open('http://127.0.0.1:5500/credits.html')

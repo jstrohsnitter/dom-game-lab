@@ -58,20 +58,25 @@ chooseAPathPrompt.setAttribute('id', 'choose-path')
 chooseAPathPrompt.innerHTML = 'Good Day brave knight! The sky has been turned red and evil is afoot. A great journey begins with a single step, which direction shall you choose?'
 newGameElement.appendChild(chooseAPathPrompt)
 
+const newGameButtonContainerElement = document.createElement('div')
+newGameButtonContainerElement.setAttribute ('id', 'new-game-button-container')
+newGameElement.appendChild(newGameButtonContainerElement)
+console.dir(buttonContainerElement)
+
 const goLeftButton = document.createElement('button')
 goLeftButton.setAttribute('id', 'go-left-button')
 goLeftButton.innerHTML = 'Left'
-newGameElement.appendChild(goLeftButton)
+newGameButtonContainerElement.appendChild(goLeftButton)
 
 const goMiddleButton = document.createElement('button')
 goMiddleButton.setAttribute('id', 'middle-button')
 goMiddleButton.innerHTML = 'The Middle Path'
-newGameElement.appendChild(goMiddleButton)
+newGameButtonContainerElement.appendChild(goMiddleButton)
 
 const goRightButton = document.createElement('button')
 goRightButton.setAttribute('id', 'go-right-button')
 goRightButton.innerHTML = 'Right'
-newGameElement.appendChild(goRightButton)
+newGameButtonContainerElement.appendChild(goRightButton)
 
 let theMiddlePath = goMiddleButton.addEventListener('click', () => {
     bodyElement.removeChild(newGameElement)
@@ -85,7 +90,7 @@ middlePathElement.appendChild(middlePathPrompt)
 
 const treeButton = document.createElement('button')
 treeButton.setAttribute('id', 'tree-button')
-treeButton.innerHTML = 'Tree'
+treeButton.innerHTML = ''
 middlePathElement.appendChild(treeButton)
 
 

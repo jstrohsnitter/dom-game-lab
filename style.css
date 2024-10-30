@@ -222,8 +222,14 @@ body {
   animation: animate 1s infinite alternate linear;
 }
 
-#swing-count-log, #log-count-log {
-  font-size: 30px
+#swing-count-log {
+  font-size: 30px;
+}
+
+#log-count-log {
+  font-size: 30px;
+  margin-top: auto;
+  
 }
 
 #fire-button {

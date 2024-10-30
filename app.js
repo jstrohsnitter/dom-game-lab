@@ -12,7 +12,7 @@ console.dir(mainMenuElement)
 
 
 
-mainMenuElement.setAttribute('id', 'mainMenu')
+mainMenuElement.setAttribute('id', 'main-menu')
 newGameElement.setAttribute('id', 'new-game')
 middlePathElement.setAttribute('id', 'the-middle-path')
 fireElement.setAttribute('id', 'fire-element')
@@ -38,6 +38,12 @@ const creditsButtonElement = document.createElement('button')
 creditsButtonElement.setAttribute('id', 'credits-button')
 creditsButtonElement.innerHTML = 'Credits'
 mainMenuElement.appendChild(creditsButtonElement)
+
+// const buttonContainerElement = document.createElement('div')
+// buttonContainerElement.setAttribute ('id', 'button-container')
+// buttonContainerElement.appendChild(mainMenuElement)
+// buttonContainerElement.innerHTML = 'test'
+// console.dir(buttonContainerElement)
 
 let showCredits = creditsButtonElement.addEventListener('click', () => {
     window.open('http://127.0.0.1:5500/credits.html')
@@ -103,7 +109,7 @@ const handleSwing = (event) => {
         swingCount = swingCount + 1;
         console.log(swingCount)
         swingCountLog.textContent = `You have taken ${swingCount} swing(s), KEEP CHOPPING!!`
-        // if the swing count is evenly divisible by 5, log the amount whole divisions as a '# of log chopped'
+       
         if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
             logCount = swingCount / 5
             logCountLog.textContent = `You have collected ${logCount} log(s)`
@@ -119,12 +125,18 @@ const handleSwing = (event) => {
                 })
             }
         }
-        // once a player has chopped 20 logs, ask if they want to build a fire, if yes, go to next page and show fire
+        
     }
 }
 
+const fireGameEnd = document.createElement('h2')
+fireGameEnd.setAttribute('id', 'fire-game-end-prompt')
+fireGameEnd.innerHTML = 'Blaze that fire Knight. Feels good does it not? aw yea. Take a load off. Rest thy weary bones. Tomorrow brings a new day, and a new set of challeneges.'
+fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
+
+
 
 
 
@@ -139,13 +151,13 @@ treeButton.addEventListener('click', handleSwing)
 // function mainMenuScreen () {
 //     console.log('test')
 //     const newBody = document.createElement('body')
-//     console.dir(newBody)
-//     newBody.setAttribute('id', 'body2')
-//     const mainMenuHeaderElement = document.createElement('h1')
-//     mainMenuHeaderElement.setAttribute('id', 'main-menu-header')
-//     mainMenuElement.appendChild(mainMenuHeaderElement)
-//     mainMenuHeaderElement.innerHTML = 'Main Menu'
-// }
+// //     console.dir(newBody)
+// //     newBody.setAttribute('id', 'body2')
+// //     const mainMenuHeaderElement = document.createElement('h1')
+// //     mainMenuHeaderElement.setAttribute('id', 'main-menu-header')
+// //     mainMenuElement.appendChild(mainMenuHeaderElement)
+// //     mainMenuHeaderElement.innerHTML = 'Main Menu'
+// // }
 
 // document.body = newBody //got this from google, trying to insert a new body after erasing the old one
 // console.dir(newBody)

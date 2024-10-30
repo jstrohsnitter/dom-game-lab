@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+  }
+
+#title-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url("https://i.imgur.com/VnOXKpH.gif") no-repeat scroll 0 0 transparent;
+    background-size: cover;
+    background-color: black;
+    height: 100vh;
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+    padding: none;
+    margin: none;
+
+    /* height: 100px;
+    width: 100px; */
+}
+
+#title-header {
+    border: 1px solid black;
+    font-size: 100px;
+    margin-bottom: auto;
+    color: orange;
+    text-shadow:
+    0 3px 20px rgb(255, 0, 0),
+    0 0 20px red,
+    0 0 10px orange,
+    4px -5px 6px yellow,
+    -4px -10px 10px yellow;
+    animation: animate 1s infinite alternate linear;
+}
+
+
+
+#title-subheader {
+    border: 1px solid black;
+    font-size: 50px;
+    /* margin-bottom: 150px; */
+    color: orange;
+    text-shadow:
+    0 3px 20px rgb(255, 0, 0),
+    0 0 20px red,
+    0 0 10px orange,
+    4px -5px 6px yellow,
+    -4px -10px 10px yellow;
+    animation: animate 2s infinite alternate linear;
+}
+
+#enter-button {
+    background-color: black;
+    margin-top: auto;
+    color: orange;
+    font-size: 40px;
+    text-shadow:
+    0 3px 20px rgb(255, 0, 0),
+    0 0 20px red,
+    0 0 10px orange,
+    4px -5px 6px yellow,
+    -4px -10px 10px yellow;
+    animation: animate 2s infinite alternate linear;
+    height: 250px;
+    width: 450px;
+    font-family: "MedievalSharp", cursive;
+    background-image: url("https://as1.ftcdn.net/v2/jpg/08/95/54/64/1000_F_895546476_7OJA8oPyYRBbyo6SckRC2ehkBOAo3UKi.jpg");
+    background-size: cover;
+    cursor: pointer;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: black; */
+    height: 100vh;
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+    padding: none;
+    margin: none;
+}
+
+#title {
+    border: 1px solid black;
+    font-size: 100px;
+    margin-bottom: auto;
+    color: orange;
+    text-shadow:
+    0 3px 20px rgb(255, 0, 0),
+    0 0 20px red,
+    0 0 10px orange,
+    4px -5px 6px yellow,
+    -4px -10px 10px yellow;
+    animation: animate 1s infinite alternate linear;
+}
+
+@keyframes animate {
+    0% {
+        text-shadow:
+          0 3px 20px red,
+          0 0 20px red,
+          0 0 10px orange,
+          0 0 0 yellow,
+          0 0 5px yellow,
+          -2px -5px 5px yellow,
+          4px -10px 10px yellow;
+      }
+      25% {
+        text-shadow:
+          0 3px 20px red,
+          0 0 30px red,
+          0 0 20px orange,
+          0 0 5px yellow,
+          -2px -5px 5px yellow,
+          3px -10px 10px yellow,
+          -4px -15px 20px yellow;
+      }
+      50% {
+        text-shadow:
+          0 3px 20px red,
+          0 0 20px red,
+          0 -5px 10px orange,
+          -2px -5px 5px yellow,
+          3 -10px 10px yellow,
+          -4px -15px 20px yellow,
+          2px -20px 30px rgba(255,255,0,0.5);
+      }
+      75% {
+        text-shadow:
+          0 3px 20px red,
+          0 0 20px red,
+          0 -5px 10px orange,
+          3 -5px 5px yellow,
+          -4px -10px 10px yellow,
+          2px -20px 30px rgba(255,255,0,0.5),
+          0 -25px 40px rgba(255,255,0,0);
+      }
+      100% {
+        text-shadow:
+          0 3px 20px red,
+          0 0 20px red,
+          0 0 10px orange,
+          0 0 0 yellow,
+          0 0 5px yellow,
+          -2px -5px 5px yellow,
+          4px -10px 10px yellow;
+      }
+    }

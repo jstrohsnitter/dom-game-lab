@@ -136,12 +136,41 @@ const handleSwing = (event) => {
                 }  
             let robbedLogs = logDeduction ()
             console.log(robbedLogs)
+        
             if (robbedLogs > 0) {
                 robbedLogCount = robbedLogs
                 logCount = logCount - robbedLogs
                 logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
             } 
-            // logCount = (swingCount/5) - robbedLogs
+        }
+            if(swingCount === 20) {
+                function logDeduction () {
+                    return (Math.floor(Math.random() * 2)) 
+                }  
+            let robbedLogs = logDeduction ()
+            console.log(robbedLogs)
+        
+            if (robbedLogs > 0) {
+                robbedLogCount = robbedLogs
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
+            } 
+        }
+
+            if(swingCount === 50) {
+                function logDeduction () {
+                    return (Math.floor(Math.random() * 6)) 
+                }  
+            let robbedLogs = logDeduction ()
+            console.log(robbedLogs)
+        
+            if (robbedLogs > 0) {
+                robbedLogCount = robbedLogs
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
+            } 
+        }
+
             if(logCount === 20){
                 console.log('build a fire')
                 const fireButton = document.createElement('button')
@@ -153,11 +182,12 @@ const handleSwing = (event) => {
                     bodyElement.appendChild(fireElement)
                 })
             }
-        }
+    
         
+            }
+        }
     }
-    }
-}
+
 // ========================================================================================================================================================================================
 
 

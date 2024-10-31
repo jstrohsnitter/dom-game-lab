@@ -123,30 +123,25 @@ const handleSwing = (event) => {
         console.log(swingCount)
         swingCountLog.textContent = `You have taken ${swingCount} swing(s), KEEP CHOPPING!!`
         
-
-
-
-
-
-
 // ==============================SCRIPT BEFORE FUNCTION COMPILATION===================================================================
 
         if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
            
-          logCount = swingCount / 5
+          logCount = swingCount / 5 - robbedLogCount
           logCountLog.textContent = `You have collected ${logCount} log(s)`
            
-            if(logCount === 2) {
+            if(swingCount === 10) {
                 function logDeduction () {
                     return (Math.floor(Math.random() * 3)) 
                 }  
             let robbedLogs = logDeduction ()
             console.log(robbedLogs)
             if (robbedLogs > 0) {
+                robbedLogCount = robbedLogs
                 logCount = logCount - robbedLogs
-                logCountLog.textContent = `you have been robbed! you now have ${logCount} logs. keep chopping`
+                logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
             } 
-
+            // logCount = (swingCount/5) - robbedLogs
             if(logCount === 20){
                 console.log('build a fire')
                 const fireButton = document.createElement('button')
@@ -161,7 +156,7 @@ const handleSwing = (event) => {
         }
         
     }
-}
+    }
 }
 // ========================================================================================================================================================================================
 

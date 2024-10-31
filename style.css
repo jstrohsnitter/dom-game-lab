@@ -2,11 +2,13 @@
     box-sizing: border-box;
   }
 
-body {
-  background-image: url("/knightbackground.gif");  /*got help from Glenn on this one*/
-  background-size: 100%;
-  font-family: "MedievalSharp", system-ui, cursive;
-}
+  body {
+    background-image: url("/knightbackground.gif");  /*got help from Glenn on this one*/
+    background-size: 100%;
+    font-family: "MedievalSharp", system-ui, cursive;
+    background-attachment: fixed;
+    margin: 0;
+} 
 
 #title-screen{
     display: flex;
@@ -20,8 +22,8 @@ body {
     font-family: "MedievalSharp", cursive;
     font-weight: 400;
     font-style: normal;
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
 
     /* height: 100px;
     width: 100px; */

@@ -102,21 +102,51 @@ const logCountLog = document.createElement('h4')
 logCountLog.setAttribute('id', 'log-count-log')
 middlePathElement.appendChild(logCountLog)
 
-
+const robbedLogCountLog = document.createElement('h4')
+robbedLogCountLog.setAttribute('id', 'robbed-log-count-log')
+middlePathElement.appendChild(robbedLogCountLog)
 
 
 let swingCount = 0;
 let logCount = 0
+let robbedLogCount = 0
+
+// if (robbedLogs > 0 && (swingCount % 5 === 0)){
+//     robbedLogCount = logCount - robbedLogs
+//     robbedLogCountLog.textContent = `You have collected ${robbedLogCount} log(s)`
+// }
+
 
 const handleSwing = (event) => {
     if(event.target.id === 'tree-button'){
         swingCount = swingCount + 1;
         console.log(swingCount)
         swingCountLog.textContent = `You have taken ${swingCount} swing(s), KEEP CHOPPING!!`
-       
+        
+
+
+
+
+
+
+// ==============================SCRIPT BEFORE FUNCTION COMPILATION===================================================================
+
         if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
-            logCount = swingCount / 5
-            logCountLog.textContent = `You have collected ${logCount} log(s)`
+           
+          logCount = swingCount / 5
+          logCountLog.textContent = `You have collected ${logCount} log(s)`
+           
+            if(logCount === 2) {
+                function logDeduction () {
+                    return (Math.floor(Math.random() * 3)) 
+                }  
+            let robbedLogs = logDeduction ()
+            console.log(robbedLogs)
+            if (robbedLogs > 0) {
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `you have been robbed! you now have ${logCount} logs. keep chopping`
+            } 
+
             if(logCount === 20){
                 console.log('build a fire')
                 const fireButton = document.createElement('button')
@@ -132,6 +162,10 @@ const handleSwing = (event) => {
         
     }
 }
+}
+// ========================================================================================================================================================================================
+
+
 
 const fireGameEnd = document.createElement('h2')
 fireGameEnd.setAttribute('id', 'fire-game-end-prompt')
@@ -140,23 +174,23 @@ fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
 
-const inventory = {
-    kit: []
-}
+// const inventory = {
+//     kit: []
+// }
 
-const store = {
-    items: [
-        {item: "Fine Linen Shirt (Margiela)", stock: true, price: 500, category: "cloth", swag: +5, armor: +0},
-        {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2},
-        {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5},
-        {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1},
-        {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0},
-        {item: "Those kinda pointed iron knight-like shoes", stock: true, price: 800, category: "armor", armor: +2},
-        {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", armor: +5},
-        {item: "Chest Plate", stock: true, price: 800, category: "shoes"},
+// const store = {
+//     items: [
+//         {item: "Fine Linen Shirt (Margiela)", stock: true, price: 500, category: "cloth", swag: +5, armor: +0},
+//         {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2},
+//         {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5},
+//         {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1},
+//         {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0},
+//         {item: "Those kinda pointed iron knight-like shoes", stock: true, price: 800, category: "armor", armor: +2},
+//         {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", armor: +5},
+//         {item: "Chest Plate", stock: true, price: 800, category: "shoes"},
 
-    ]
-}
+//     ]
+// }
 
 
 
@@ -198,3 +232,42 @@ const store = {
 //     console.log('credits button')
     
 // })
+
+// if(logCount === 2) {
+//     function logDeduction () {
+//         const robbedLogs = (Math.floor(Math.random() * 3)) 
+//         return robbedLogs
+//     }  
+// }
+// console.log(robbedLogs)
+// if (robbedLogs > 0) {
+//     logCount = logCount - robbedLogs
+//     logCountLog.textContent = `you have been robbed! you now have ${logCount} logs. keep chopping`
+// }
+
+// function logDeduction () {
+//     return (Math.floor(Math.random() * 3))
+// }
+
+// let robbedLogs = logDeduction ()
+// console.log(robbedLogs)
+
+
+  // function evaluateLogs (swingCount) {
+        //     if (swingCount % 5 === 0 && )
+        // }
+
+
+        // if log count is above 2 and robbed logs <0 show one message  
+        // if logcount is less than 2 show one message
+        // if lof count is 2 
+
+
+                //     // if (robbedLogs > 0 && (swingCount % 5 === 0)){
+        //     //     robbedLogCount = logCount - robbedLogs
+        //     //     robbedLogCountLog.textContent = `You have collected ${robbedLogCount} log(s)`
+        //     // }
+        //     } 
+               
+            
+            // console.log(logDeduction())

@@ -140,6 +140,24 @@ fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
 
+const inventory = {
+    kit: []
+}
+
+const store = {
+    items: [
+        {item: "Fine Linen Shirt (Margiela)", stock: true, price: 500, category: "cloth", swag: +5, armor: +0},
+        {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2},
+        {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5},
+        {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1},
+        {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0},
+        {item: "Those kinda pointed iron knight-like shoes", stock: true, price: 800, category: "armor", armor: +2},
+        {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", armor: +5},
+        {item: "Chest Plate", stock: true, price: 800, category: "shoes"},
+
+    ]
+}
+
 
 
 

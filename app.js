@@ -5,6 +5,7 @@ const mainMenuElement = document.createElement('div')
 const newGameElement = document.createElement('div')
 const middlePathElement = document.createElement('div')
 const fireElement = document.createElement('div')
+const storeElement = document.createElement('div')
 console.dir(enterButtonElement)
 console.dir(titleScreenElement)
 console.dir(bodyElement)
@@ -16,6 +17,7 @@ mainMenuElement.setAttribute('id', 'main-menu')
 newGameElement.setAttribute('id', 'new-game')
 middlePathElement.setAttribute('id', 'the-middle-path')
 fireElement.setAttribute('id', 'fire-element')
+storeElement.setAttribute('id', 'store-element')
 
 
 let insertMainMenu = enterButtonElement.addEventListener('click', () => {
@@ -199,25 +201,36 @@ fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
 
-// const inventory = {
-//     kit: []
-// }
+const inventory = {
+    kit: []
+}
 
-// const store = {
-//     items: [
-//         {item: "Fine Linen Shirt (Margiela)", stock: true, price: 500, category: "cloth", swag: +5, armor: +0},
-//         {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2},
-//         {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5},
-//         {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1},
-//         {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0},
-//         {item: "Those kinda pointed iron knight-like shoes", stock: true, price: 800, category: "armor", armor: +2},
-//         {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", armor: +5},
-//         {item: "Chest Plate", stock: true, price: 800, category: "shoes"},
+const store = {
+    items: [
+        {item: "Fine Linen Shirt", stock: true, price: 500, category: "cloth", swag: +5, armor: +0, attack: +0},
+        {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2, attack: +0},
+        {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5, attack: +0},
+        {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1, attack: +0},
+        {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0, attack: +0},
+        {item: "Those kinda pointed iron knight-like shoes", stock: true, price: 800, category: "armor", swag: +100000, armor: +2, attack: +0},
+        {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", swag: +928378346, armor: +5, attack: +0},
+        {item: "Chest Plate", stock: true, price: 1000, category: "armor", swag: +5, armor: +20, attack: +0},
+        {item: "Dagger", stock: false, price: 200, category: "weapon", swag: +5, armor: 0, attack: +10},
+        {item: "Broad Sword", stock: true, price: 800, category: "weapon", swag: +10, armor: 0, attack: +20},
+        {item: "Bow and Arrows", stock: true, price: 700, category: "weapon", swag: +5, armor: 0, attack: +15},
+        {item: "Gun", stock: true, price: 1500, category: "weapon", swag: +100, armor: 0, attack: +100},
+    ]
+}
 
-//     ]
-// }
+let enterStore = goRightButton.addEventListener('click', () => {
+    bodyElement.removeChild(newGameElement)
+    bodyElement.appendChild(storeElement)
+})
 
-
+const storePrompt = document.createElement('h1')
+storePrompt.setAttribute('id', 'store-prompt')
+storePrompt.innerHTML = "You have encountered a traveler with a big ole cart teamed by his faithful ass. Inquire! Maybe he will be of some use to you.."
+storeElement.appendChild(storePrompt)
 
 
 

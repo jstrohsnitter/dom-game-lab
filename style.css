@@ -263,6 +263,19 @@
   animation: animate 1s infinite alternate linear;
 }
 
+#store-prompt {
+  font-size: 30px;
+  margin-bottom: auto;
+  color: orange;
+  text-shadow:
+  0 3px 20px rgb(255, 0, 0),
+  0 0 20px red,
+  0 0 10px orange,
+  4px -5px 6px yellow,
+  -4px -10px 10px yellow;
+  animation: animate 1s infinite alternate linear;
+}
+
 @keyframes animate {
     0% {
         text-shadow:

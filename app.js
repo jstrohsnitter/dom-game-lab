@@ -221,6 +221,9 @@ const handleSwing = (event) => {
                 fireButton.setAttribute('id', 'fire-button')
                 fireButton.innerHTML = 'Build A Fire!'
                 middlePathElement.appendChild(fireButton)
+                middlePathElement.removeChild(logCountLog)
+                middlePathElement.removeChild(swingCountLog)
+                middlePathElement.removeChild(robbedLogCountLog)
                 let buildAFire = fireButton.addEventListener('click', () => {
                     bodyElement.removeChild(middlePathElement)
                     bodyElement.appendChild(fireElement)
@@ -271,7 +274,7 @@ let enterStore = goRightButton.addEventListener('click', () => {
 
 const storePrompt = document.createElement('h1')
 storePrompt.setAttribute('id', 'store-prompt')
-storePrompt.innerHTML = "You have encountered a traveler with a big ole cart teamed by his faithful ass. Inquire! Maybe he will be of some use to you.."
+storePrompt.innerHTML = "You have encountered a traveler with a big ole cart teamed by his faithful ass. INQUIRE! Maybe he will be of some use to you.."
 storeElement.appendChild(storePrompt)
 
 

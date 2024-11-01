@@ -44,8 +44,6 @@
     animation: animate 1s infinite alternate linear;
 }
 
-
-
 #title-subheader {
     /* border: 1px solid black; */
     font-size: 50px;
@@ -202,7 +200,9 @@
     4px -5px 6px yellow,
     -4px -10px 10px yellow;
     animation: animate 2s infinite alternate linear;
-    padding: 20px;
+    padding-left: 20px;
+    margin-top: 0px;
+    gap: 5px;
 }
 
 #tree-step-button-container {
@@ -252,12 +252,17 @@
 
 #swing-count-log {
   font-size: 30px;
+  padding: 10px;
+  border: 0px;
+  margin: 0px; 
 }
 
 #log-count-log {
   font-size: 30px;
   margin-top: auto;
-  
+  padding: 0px;
+  border: 0px;
+  margin: 0px;  
 }
 
 #fire-button {

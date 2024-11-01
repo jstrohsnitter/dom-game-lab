@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    line-height: 145%;
   }
 
   body {
@@ -162,12 +163,10 @@
 }
 
 #new-game-button-container {
-  /* border: 10px solid black; */
   display: flex;
   justify-content: space-between;
   align-content: baseline;
   gap: 20px;
-  
 }
 
 
@@ -203,6 +202,33 @@
     4px -5px 6px yellow,
     -4px -10px 10px yellow;
     animation: animate 2s infinite alternate linear;
+    padding: 20px;
+}
+
+#tree-step-button-container {
+  display: flex;
+  width: 80vh;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: baseline;
+  gap: 20px;
+}
+
+#step-back-button{
+  border: 5px ridge red;
+  background: transparent;
+  height:200px;
+  width: 200px;
+  font-family: "MedievalSharp", cursive;
+  font-size: 40px;
+  cursor: pointer;
+  color: orange;
+  text-shadow:
+  0 3px 20px rgb(255, 0, 0),
+  0 0 20px red,
+  0 0 10px orange,
+  4px -5px 6px yellow,
+  -4px -10px 10px yellow;
 }
 
 #tree-button {

@@ -90,11 +90,32 @@ middlePathPrompt.setAttribute('id', 'middle-path-prompt')
 middlePathPrompt.innerHTML = "You have encountered a downed tree! Night is closing in, the wolves are howling, and the temperature is falling fast. Click the tree to swing thy axe, chop some wood, and build a fire."
 middlePathElement.appendChild(middlePathPrompt)
 
+const treeAndStepButtonContainerElement = document.createElement('div')
+treeAndStepButtonContainerElement.setAttribute ('id', 'tree-step-button-container')
+middlePathElement.appendChild(treeAndStepButtonContainerElement)
+console.dir(treeAndStepButtonContainerElement)
+
 const treeButton = document.createElement('button')
 treeButton.setAttribute('id', 'tree-button')
 treeButton.innerHTML = ''
-middlePathElement.appendChild(treeButton)
+treeAndStepButtonContainerElement.appendChild(treeButton)
 
+const stepBackButton = document.createElement('button')
+stepBackButton.setAttribute('id', 'step-back-button')
+stepBackButton.innerHTML = 'Step Back'
+treeAndStepButtonContainerElement.appendChild(stepBackButton)
+
+let stepBackButtonClick = stepBackButton.addEventListener('click', () => {
+    bodyElement.removeChild(middlePathElement)
+    bodyElement.appendChild(newGameElement)
+    logCount = 0
+    robbedLogCount = 0 
+    robbedLogCount2 = 0
+    robbedLogCount3 = 0
+    swingCount = 0
+    swingCountLog.textContent = ""
+    logCountLog.textContent = ""
+})
 
 const swingCountLog = document.createElement('h4')
 swingCountLog.setAttribute('id', 'swing-count-log')
@@ -110,8 +131,10 @@ middlePathElement.appendChild(robbedLogCountLog)
 
 
 let swingCount = 0;
-let logCount = 0
-let robbedLogCount = 0
+let logCount = 0;
+let robbedLogCount = 0;
+let robbedLogCount2 = 0;
+let robbedLogCount3 = 0;
 
 // if (robbedLogs > 0 && (swingCount % 5 === 0)){
 //     robbedLogCount = logCount - robbedLogs
@@ -129,7 +152,7 @@ const handleSwing = (event) => {
 
         if(swingCount % 5 === 0) { //modulus operator % will return the remainder of a division, in this case i am looking for even distributions, so the remainder will be 0, arrays lab referenced//
            
-          logCount = swingCount / 5 - robbedLogCount
+          logCount = swingCount / 5 - robbedLogCount - robbedLogCount2 - robbedLogCount3
           logCountLog.textContent = `You have collected ${logCount} log(s)`
            
             if(swingCount === 10) {
@@ -143,7 +166,14 @@ const handleSwing = (event) => {
                 robbedLogCount = robbedLogs
                 logCount = logCount - robbedLogs
                 logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
+            }
+            
+            if (robbedLogs = 0) {
+                robbedLogCount = robbedLogs
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `You have collected ${logCount} log(s)`
             } 
+
         }
             if(swingCount === 20) {
                 function logDeduction () {
@@ -153,9 +183,15 @@ const handleSwing = (event) => {
             console.log(robbedLogs)
         
             if (robbedLogs > 0) {
-                robbedLogCount = robbedLogs
+                robbedLogCount2 = robbedLogs
                 logCount = logCount - robbedLogs
                 logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
+            } 
+
+            if (robbedLogs = 0) {
+                robbedLogCount2 = robbedLogs
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `You have collected ${logCount} log(s)`
             } 
         }
 
@@ -167,9 +203,15 @@ const handleSwing = (event) => {
             console.log(robbedLogs)
         
             if (robbedLogs > 0) {
-                robbedLogCount = robbedLogs
+                robbedLogCount3 = robbedLogs
                 logCount = logCount - robbedLogs
                 logCountLog.textContent = `you have been robbed! you now have ${logCount} log(s). KEEP CHOPPING!!`
+            } 
+
+            if (robbedLogs = 0) {
+                robbedLogCount3 = robbedLogs
+                logCount = logCount - robbedLogs
+                logCountLog.textContent = `You have collected ${logCount} log(s)`
             } 
         }
 

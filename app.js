@@ -330,7 +330,7 @@ buyItemButton.addEventListener('click', () => {
         if (inventory[selectedItem.item]) {
             inventory[selectedItem.item].quantity += 1; // Increment quantity if already in inventory
         } else {
-            inventory[selectedItem.item] = { ...selectedItem, quantity: 1 }; // Add new item to inventory
+            inventory[selectedItem.item] = { ...selectedItem, quantity: 1 }; // Add new item to inventory 
         }
         
         const inventoryItem = document.createElement('li')

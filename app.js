@@ -6,6 +6,7 @@ const newGameElement = document.createElement('div')
 const middlePathElement = document.createElement('div')
 const fireElement = document.createElement('div')
 const storeElement = document.createElement('div')
+const leftPathElement = document.createElement('div')
 console.dir(enterButtonElement)
 console.dir(titleScreenElement)
 console.dir(bodyElement)
@@ -18,6 +19,7 @@ newGameElement.setAttribute('id', 'new-game')
 middlePathElement.setAttribute('id', 'the-middle-path')
 fireElement.setAttribute('id', 'fire-element')
 storeElement.setAttribute('id', 'store-element')
+leftPathElement.setAttribute('id', 'left-path')
 
 
 let insertMainMenu = enterButtonElement.addEventListener('click', () => {
@@ -70,6 +72,11 @@ goLeftButton.setAttribute('id', 'go-left-button')
 goLeftButton.innerHTML = 'Left'
 newGameButtonContainerElement.appendChild(goLeftButton)
 
+let goLeftHandler = goLeftButton.addEventListener('click', () => {
+    bodyElement.removeChild(newGameElement)
+    bodyElement.appendChild(leftPathElement)
+})
+
 const goMiddleButton = document.createElement('button')
 goMiddleButton.setAttribute('id', 'middle-button')
 goMiddleButton.innerHTML = 'The Middle Path'
@@ -79,6 +86,11 @@ const goRightButton = document.createElement('button')
 goRightButton.setAttribute('id', 'go-right-button')
 goRightButton.innerHTML = 'Right'
 newGameButtonContainerElement.appendChild(goRightButton)
+
+const leftPathPrompt = document.createElement('h3')
+leftPathPrompt.setAttribute('id', 'middle-path-prompt')
+leftPathPrompt.innerHTML = "Knight, this is simply the wrong direction. Turn around."
+leftPathElement.appendChild(leftPathPrompt)
 
 let theMiddlePath = goMiddleButton.addEventListener('click', () => {
     bodyElement.removeChild(newGameElement)
@@ -246,14 +258,12 @@ fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
 
-const inventory = {
-    kit: []
-}
+const inventory = {}
 
-const store = {
-    items: [
+const store = 
+    [
         {item: "Fine Linen Shirt", stock: true, price: 500, category: "cloth", swag: +5, armor: +0, attack: +0},
-        {item: "Yee Ole Valore Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2, attack: +0},
+        {item: "Yee Ole Velour Track Suit", stock: false, price: 200, category: "cloth", swag: +100, armor: -2, attack: +0},
         {item: "Leather Britches", stock: true, price: 700, category: "cloth", swag: +1, armor: +0.5, attack: +0},
         {item: "Wooden Clogs", stock: true, price: 100, category: "shoes", swag: +70, armor: +1, attack: +0},
         {item: "Jordan VII: Citrus", stock: true, price: 250, category: "shoes", swag: +23, armor: +0, attack: +0},
@@ -261,25 +271,103 @@ const store = {
         {item: "Helmet with pheasant feather", stock: true, price: 1200, category: "armor", swag: +928378346, armor: +5, attack: +0},
         {item: "Chest Plate", stock: true, price: 1000, category: "armor", swag: +5, armor: +20, attack: +0},
         {item: "Dagger", stock: false, price: 200, category: "weapon", swag: +5, armor: 0, attack: +10},
-        {item: "Broad Sword", stock: true, price: 800, category: "weapon", swag: +10, armor: 0, attack: +20},
+        {item: "Broadsword", stock: true, price: 800, category: "weapon", swag: +10, armor: 0, attack: +20},
         {item: "Bow and Arrows", stock: true, price: 700, category: "weapon", swag: +5, armor: 0, attack: +15},
         {item: "Gun", stock: true, price: 1500, category: "weapon", swag: +100, armor: 0, attack: +100},
-    ]
-}
+    ];
+
 
 let enterStore = goRightButton.addEventListener('click', () => {
     bodyElement.removeChild(newGameElement)
     bodyElement.appendChild(storeElement)
+    console.log('go-right')
 })
 
 const storePrompt = document.createElement('h1')
 storePrompt.setAttribute('id', 'store-prompt')
-storePrompt.innerHTML = "You have encountered a traveler with a big ole cart teamed by his faithful ass. INQUIRE! Maybe he will be of some use to you.."
+storePrompt.innerHTML = "*THIS PART ISN'T DONE* You have encountered a traveler with a big ole cart teamed by his faithful ass. INQUIRE! Maybe he will be of some use to you.."
 storeElement.appendChild(storePrompt)
 
 
+// technique for implementing this store was dervied from a chatgpt prompt on how to do it
+const storeDropdown = document.createElement('select')
+storeDropdown.setAttribute('id', 'store-dropdown')
+const storeDropdownOption = document.createElement('option')
+storeDropdownOption.innerText = "Select an Item"
+storeDropdownOption.setAttribute('value', "")
+storeDropdown.appendChild(storeDropdownOption)
+storeElement.appendChild(storeDropdown)
+
+const buyItemButton = document.createElement('button')
+buyItemButton.setAttribute('id', 'buy-item-button')
+buyItemButton.innerText = 'Buy Item'
+storeElement.appendChild(buyItemButton)
+
+const inventoryElement = document.createElement('h3')
+inventoryElement.setAttribute('id', 'inventory')
+inventoryElement.innerText = "Kit"
+storeElement.appendChild(inventoryElement)
+const inventoryListElement = document.createElement('ul')
+inventoryListElement.setAttribute('id', 'inventory-list')
+storeElement.appendChild(inventoryListElement)
 
 
+// const dropdown = document.getElementById('store-dropdown')
+store.forEach(banana => {
+    const option = document.createElement('option');
+    option.value = banana.item;
+    option.textContent = `Item: ${banana.item}, Stock: ${banana.stock}, Price: ${banana.price}, Category: ${banana.category}, Swag: ${banana.swag}, Armor: ${banana.armor}, Attack: ${banana.attack}`;
+    storeDropdown.appendChild(option)
+})
+
+buyItemButton.addEventListener('click', () => {
+    const selectedId = storeDropdown.value;
+    
+    if (selectedId) {
+        const selectedItem = store.find(banana => banana.item == selectedId); //finds the first element with the item value equivalent to the value of selectedId. there are no repeat item values in the array, so the input should always be the item selected by the user
+        
+        // Add to inventory
+        if (inventory[selectedItem.item]) {
+            inventory[selectedItem.item].quantity += 1; // Increment quantity if already in inventory
+        } else {
+            inventory[selectedItem.item] = { ...selectedItem, quantity: 1 }; // Add new item to inventory
+        }
+        
+        const inventoryItem = document.createElement('li')
+        inventoryItem.innerHTML = selectedId; // Display the current inventory
+        inventoryListElement.appendChild(inventoryItem)
+    } else {
+        console.log('No item selected');
+    }
+});
+
+const stepBackButton2 = document.createElement('button')
+stepBackButton2.setAttribute('id', 'step-back-button2')
+stepBackButton2.innerHTML = 'Step Back'
+storeElement.appendChild(stepBackButton2)
+
+let stepBackButton2Click = stepBackButton2.addEventListener('click', () => {
+    bodyElement.removeChild(storeElement)
+    bodyElement.appendChild(newGameElement)
+})
+
+const stepBackButton3 = document.createElement('button')
+stepBackButton3.setAttribute('id', 'step-back-button3')
+stepBackButton3.innerHTML = 'Step Back'
+leftPathElement.appendChild(stepBackButton3)
+
+let stepBackButton3Click = stepBackButton3.addEventListener('click', () => {
+    bodyElement.removeChild(leftPathElement)
+    bodyElement.appendChild(newGameElement)
+})
+
+// for (const key in store) {
+//     const storeItem = store[key];
+//     const option = document.createElement('option');
+//     option.value = key;
+//     option.textContent = storeItem.item;
+//     dropdown.appendChild(option);
+// }
 
 
 // =========================TRASH PILE========================================

@@ -35,7 +35,7 @@
     font-size: 100px;
     margin-bottom: auto;
     color: orange;
-    text-shadow:
+    text-shadow: /*got this info from a youtube search on how to make text in css look like a fire https://www.youtube.com/watch?v=7s6GFqfu6Kw */
     0 3px 20px rgb(255, 0, 0),
     0 0 20px red,
     0 0 10px orange,
@@ -186,6 +186,26 @@
     animation: animate 1s infinite alternate linear;
 }
 
+#left-path {
+  color: orange;
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-shadow:
+  0 3px 20px rgb(255, 0, 0),
+  0 0 20px red,
+  0 0 10px orange,
+  4px -5px 6px yellow,
+  -4px -10px 10px yellow;
+  animation: animate 2s infinite alternate linear;
+  padding-left: 50px;
+  margin-top: 0px;
+  gap: 5px;
+}
+
+
 #the-middle-path{
     color: orange;
     font-size: 30px;
@@ -214,7 +234,7 @@
   gap: 20px;
 }
 
-#step-back-button{
+#step-back-button, #step-back-button2, #step-back-button3 {
   border: 5px ridge red;
   background: transparent;
   height:200px;
@@ -294,9 +314,31 @@
   animation: animate 1s infinite alternate linear;
 }
 
+#store-element {
+  font-family: "MedievalSharp", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  margin: 20px;
+}
+
 #store-prompt {
   font-size: 30px;
   margin-bottom: auto;
+  color: orange;
+  text-shadow:
+  0 3px 20px rgb(255, 0, 0),
+  0 0 20px red,
+  0 0 10px orange,
+  4px -5px 6px yellow,
+  -4px -10px 10px yellow;
+  animation: animate 1s infinite alternate linear;
+}
+
+#inventory, #inventory-list {
+  font-size: 30px;
   color: orange;
   text-shadow:
   0 3px 20px rgb(255, 0, 0),

@@ -4,7 +4,7 @@
   }
 
   body {
-    background-image: url("/knightbackground.gif");  /*got help from Glenn on this one*/
+    background-image: url("assets/images/knightbackground.gif");  /*got help from Glenn on this one*/
     background-size: 100%;
     font-family: "MedievalSharp", system-ui, cursive;
     background-attachment: fixed;
@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-image: url("/knightbackground.gif");
+    background-image: url("assets/images/knightbackground.gif");
     background-size: cover;
     /* background-color: black; */
     height: 100vh;
@@ -256,7 +256,7 @@
   height:200px;
   width: 200px;
   color: orange;
-  background: url(/tree.png);
+  background: url("assets/images/tree.png");
   background-size: cover;
   font-family: "MedievalSharp", cursive;
   font-size: 40px;

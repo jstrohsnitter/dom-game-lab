@@ -49,7 +49,7 @@ creditsButtonElement.innerHTML = 'Credits'
 buttonContainerElement.appendChild(creditsButtonElement)
 
 let showCredits = creditsButtonElement.addEventListener('click', () => {
-    window.open('http://127.0.0.1:5500/credits.html')
+    window.open('https://jstrohsnitter.github.io/dom-game-lab/credits.html')
 })
 
 let startGame = startGameButton.addEventListener('click', () => {
@@ -258,7 +258,7 @@ fireElement.appendChild(fireGameEnd)
 
 treeButton.addEventListener('click', handleSwing)
 
-const inventory = {}
+const inventory = []
 
 const store = 
     [
@@ -313,32 +313,64 @@ storeElement.appendChild(inventoryListElement)
 
 
 // const dropdown = document.getElementById('store-dropdown')
-store.forEach(banana => {
+store.forEach(banana => { //for each item(banana) in the store array, an option "option" will be created, given a value of banana.item, will display the listed properties as text content, and appended to the storeDropdown 'select' element
     const option = document.createElement('option');
-    option.value = banana.item;
-    option.textContent = `Item: ${banana.item}, Stock: ${banana.stock}, Price: ${banana.price}, Category: ${banana.category}, Swag: ${banana.swag}, Armor: ${banana.armor}, Attack: ${banana.attack}`;
+    option.value =JSON.stringify(banana); // the value of the option is the text of the object in banana(store) and turned into a string via JSON.stringify
+    option.innerHTML = `Item: ${banana.item}, Stock: ${banana.stock}, Price: ${banana.price}, Category: ${banana.category}, Swag: ${banana.swag}, Armor: ${banana.armor}, Attack: ${banana.attack}`;
     storeDropdown.appendChild(option)
 })
 
-buyItemButton.addEventListener('click', () => {
-    const selectedId = storeDropdown.value;
+let purse = 1000
+
+    const purseElement = document.createElement('h3')
+    purseElement.setAttribute('id', 'purse-element')
+    purseElement.innerText = `Purse: ${purse}`
+    storeElement.appendChild(purseElement)
+
+    buyItemButton.addEventListener('click', () => {
+    const selectedId = storeDropdown.value; //
+    const selectedItem = JSON.parse(selectedId) //the value option.value is turned back into an object with key value pairs of various data type(strings booleans and numbers). these can now be accessed with functions
     
-    if (selectedId) {
-        const selectedItem = store.find(banana => banana.item == selectedId); //finds the first element with the item value equivalent to the value of selectedId. there are no repeat item values in the array, so the input should always be the item selected by the user
-        
-        // Add to inventory
-        if (inventory[selectedItem.item]) {
-            inventory[selectedItem.item].quantity += 1; // Increment quantity if already in inventory
-        } else {
-            inventory[selectedItem.item] = { ...selectedItem, quantity: 1 }; // Add new item to inventory 
-        }
-        
-        const inventoryItem = document.createElement('li')
-        inventoryItem.innerHTML = selectedId; // Display the current inventory
-        inventoryListElement.appendChild(inventoryItem)
-    } else {
-        console.log('No item selected');
+    const inventoryItem = document.createElement('li')
+    inventoryItem.innerHTML = selectedItem.item; // Display the current inventory
+    inventoryListElement.appendChild(inventoryItem)
+
+    inventory.addSelection = function (selectedObj) {
+        inventory.push(selectedObj)
     }
+    inventory.addSelection(selectedItem)
+    console.log(inventory[0])
+
+    purse -= selectedItem.price
+
+    // inventory.cost = function () {
+    //     inventory.forEach (money => {
+    //        purse -= money.price
+    //     })
+    // }
+    // inventory.cost()
+    console.log(purse)
+    purseElement.innerText = `Purse: ${purse}`
+    
+
+
+    // if (selectedId) {
+        // const selectedItem = store.find(banana => banana.item == selectedId ); // find(callbackFn) finds the first element with the item value equivalent to the value of selectedId. there are no repeat item values in the array, so the input should always be the item selected by the user
+        
+       
+
+        // Add to inventory
+        // if (inventory[selectedItem.item]) {
+        //     inventory[selectedItem.item].quantity += 1; // Increment quantity if already in inventory
+        // } else {
+        //     inventory[selectedItem.item] = { ...selectedItem, quantity: 1 }; // Add new item to inventory 
+        // }
+        
+
+
+    //    let cost = function (selectedId.price)
+    
+    // } 
 });
 
 const stepBackButton2 = document.createElement('button')

@@ -337,7 +337,7 @@
   animation: animate 1s infinite alternate linear;
 }
 
-#inventory, #inventory-list {
+#inventory, #inventory-list, #purse-element {
   font-size: 30px;
   color: orange;
   text-shadow:
@@ -347,6 +347,7 @@
   4px -5px 6px yellow,
   -4px -10px 10px yellow;
   animation: animate 1s infinite alternate linear;
+  list-style-type: none;
 }
 
 @keyframes animate {
